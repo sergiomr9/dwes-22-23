@@ -9,7 +9,7 @@
     </head>
     <body>
         <?php
-           for ($i=0; $i <= $n; $i++) { 
+           for ($i=1; $i <= $n; $i++) { 
             for ($b=1; $b <=$n-$i ; $b++) { 
                 echo " ";
             }
