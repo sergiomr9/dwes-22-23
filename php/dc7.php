@@ -9,15 +9,18 @@
     </head>
     <body>
         <?php
-           for ($i=1; $i <= $n; $i++) { 
-            for ($b=1; $b <=$n-$i ; $b++) { 
-                echo " ";
+           for($altura = 1; $altura<=$n; $altura++){
+            //Espacios en blanco
+            for($blancos = 1; $blancos<=$n-$altura; $blancos++){
+                echo" ";
             }
-            for ($a=1; $a <=($i*2)-1; $a++) { 
-               echo "*";
+ 
+            
+            for($asteriscos=1; $asteriscos<=($altura*2)-1; $asteriscos++){
+                echo"*";
             }
             echo"<br>";
-           }
+        }
         ?>
     </body>
 </html>
