@@ -10,7 +10,7 @@
     <body>
         <?php
            for ($i=0; $i < $n; $i++) { 
-                for($altura=1 ; $altura < $n ; $altura++){
+                for($b1 ; $ab< $n-$i ; $b++){
                     echo " ";
                 }
                for ($j=0;$j < ($i*2)-1 ; $j++) { 

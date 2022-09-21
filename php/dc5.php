@@ -5,7 +5,11 @@
    $r = 3;
    $error = false;
    if(isset($_GET('radio'))){
-        
+        $r=$_GET('radio');
+        if ($r == "") {
+            $r = 0;
+            $error = true;
+        }
    }else{
         $r=0;
    }
