@@ -16,8 +16,8 @@
             $d = $n1/$n2;
             $a = array($s++, $r++, $m++, $d++);
             $b = array($s--, $r--, $m--, $d--);
-            print_r($a);
-            print_r($b);
+            echo "print_r($a)";
+            echo "print_r($b)";
         ?>
     </body>
 </html>
