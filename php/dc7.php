@@ -10,13 +10,13 @@
     <body>
         <?php
            for ($i=0; $i <= $n; $i++) { 
-                for($b=1 ; $b<= $n-$i ; $b++){
-                    echo " ";
-                }
-                for ($j=0;$j <= ($i*2)-1 ; $j++) { 
-                   echo "*";
-                }
-               echo"<br>";
+            for ($b=1; $b <=$n-$i ; $b++) { 
+                echo " ";
+            }
+            for ($a=1; $a <=($i*2)-1; $a++) { 
+               echo "*";
+            }
+            echo"<br>";
            }
         ?>
     </body>
