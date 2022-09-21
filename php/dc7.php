@@ -10,12 +10,12 @@
     <body>
         <?php
            for ($i=0; $i < $n; $i++) { 
-                for($b1 ; $ab< $n-$i ; $b++){
+                for($b1 ; $b< $n-$i ; $b++){
                     echo " ";
                 }
-               for ($j=0;$j < ($i*2)-1 ; $j++) { 
+                for ($j=0;$j < ($i*2)-1 ; $j++) { 
                    echo "*";
-               }
+                }
                echo"<br>";
            }
         ?>
