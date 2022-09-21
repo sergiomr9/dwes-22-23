@@ -1,3 +1,7 @@
+<?php
+$nombre = "Sergio";
+?>
+
 <!Doctype html>
 <html>
     <head>
@@ -14,9 +18,10 @@
     </head>
     <body>
         <?php echo "Hola Mundo" ?>
+        <h1>Hola Mundo</h1>
         <br>
         <div class="n">
-            <?=$t."Esta página ha sido programada por Sergio"?>
+            <?=$t."Esta página ha sido programada por $nombre"?>
         </div>
     </body>
 </html>
