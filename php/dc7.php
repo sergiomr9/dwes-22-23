@@ -3,23 +3,18 @@
     <head>
             <title>Ejemplo</title>
             <?php
-                $n=8;
+                $filas=8;
             ?>
            
     </head>
     <body>
         <?php
-           for($altura = 1; $altura<=$n; $altura++){
-            //Espacios en blanco
-            for($blancos = 1; $blancos<=$n-$altura; $blancos++){
-                echo" ";
+            $cadena=null;
+           for ($i = 1; $i <= $filas; $i++) {
+            for ($h = $i; $h <= $i; $h++) {
+                $cadena .= "*";
             }
- 
-            
-            for($asteriscos=1; $asteriscos<=($altura*2)-1; $asteriscos++){
-                echo"*";
-            }
-            echo"<br>";
+            echo $cadena."<br />";
         }
         ?>
     </body>
