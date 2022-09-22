@@ -1,7 +1,7 @@
 <!Doctype html>
 <?php 
 $nombre = "SERGIO";
-$c=$_GET('cadena');
+$c=$_GET['cadena'];
 $error = false;
 if(isset($_GET['cadena'])){
     $c=$_GET('cadena');
