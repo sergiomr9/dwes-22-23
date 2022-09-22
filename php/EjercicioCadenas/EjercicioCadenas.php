@@ -1,7 +1,7 @@
 <!Doctype html>
 <?php 
 $nombre = "SERGIO";
-$c='cadena';
+$c;
 $error = false;
 
 ?>
