@@ -15,9 +15,9 @@ $error = false;
     <body>
         <h1>BIENVENIDO AL FORMULARIO DE <?=$nombre?></h1><br>
         <form action="EjercicioCadenas.php" method="get">
-            Cadena: <input type="text"> 
-            <input type="submit" value="Enviar" name="cadena" 
-                id="" value="<?=$c?>" placeholder="introduce la cadena">
+            Cadena: <input type="text" name="cadena" 
+                id="" value="<?=$c?>" placeholder="introduce la cadena"> 
+            <input type="submit" value="Enviar">
 
         </form>
         <div>
