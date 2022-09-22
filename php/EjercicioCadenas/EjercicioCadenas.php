@@ -1,7 +1,7 @@
 <!Doctype html>
 <?php 
 $nombre = "SERGIO";
-$c="";
+$c='cadena';
 $error = false;
 
 ?>
@@ -22,9 +22,9 @@ $error = false;
         </form>
         <div>
             <ul>
-                <tr><td> Número de vocales: <?=$c?> </td></tr>
-                <tr><td> Número de consonantes: <?=$c?> </td></tr>
-                <tr><td> Palindromo: <?=$c?> </td></tr>
+                <li> Número de vocales: <?=$c?> </li>
+                <li> Número de consonantes: <?=$c?> </li>
+                <li> Palindromo: <?=$c?> </li>
             </ul>
         </div>
     </body>
