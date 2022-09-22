@@ -48,12 +48,7 @@ for ($i=0; $i < strlen($c); $i++) {
             <ul>
                 <li> Número de vocales: <?=$v?> </li>
                 <li> Número de consonantes: <?=$con?> </li>
-                <li> Palindromo: <? if ($pal) {?>
-                    <p>Es palíndromo</p>
-                <?php } else{ ?>
-                    <p> No es palíndromo</p>
-                   <?php }
-                    ?> </li>
+                <li> Palindromo: </li>
             </ul>
         </div>
     </body>
