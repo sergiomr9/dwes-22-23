@@ -3,6 +3,9 @@
 $nombre = "SERGIO";
 $c=$_GET['cadena'];
 $error = false;
+$v = 0;
+$con = 0;
+$pal = true;
 if(isset($_GET['cadena'])){
     $c=$_GET['cadena'];
     if ($c == "") {
@@ -13,6 +16,14 @@ if(isset($_GET['cadena'])){
     $c=0;
 }
 print_r($_GET);
+
+for ($i=0; $i < strlen($c); $i++) { 
+    if ($c[$i]== "a" || $c[$i]== "e" || $c[$i]== "i" || $c[$i]== "o" || $c[$i]== "u") {
+        $v++;
+    }else{
+        $con++;
+    }
+}
 ?>
 <html>
     <head>
@@ -23,6 +34,10 @@ print_r($_GET);
     </head>
     <body>
         <h1>BIENVENIDO AL FORMULARIO DE <?=$nombre?></h1><br>
+        <?php if($error){ ?>
+                <h1>eres un poco burro</h1>
+            <?php }?> <br>
+        
         <form action="EjercicioCadenas.php" method="get">
             Cadena: <input type="text" name="cadena" 
                 id="" value="<?=$c?>" placeholder="introduce la cadena"> 
@@ -31,9 +46,14 @@ print_r($_GET);
         </form>
         <div>
             <ul>
-                <li> Número de vocales: <?=$c?> </li>
-                <li> Número de consonantes: <?=$c?> </li>
-                <li> Palindromo: <?=$c?> </li>
+                <li> Número de vocales: <?=$v?> </li>
+                <li> Número de consonantes: <?=$con?> </li>
+                <li> Palindromo: <? if ($pal) {?>
+                    <p>Es palíndromo</p>
+                <?php } else{ ?>
+                    <p> No es palíndromo</p>
+                   <?php }
+                    ?> </li>
             </ul>
         </div>
     </body>
