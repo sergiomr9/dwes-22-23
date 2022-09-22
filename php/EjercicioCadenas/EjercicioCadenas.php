@@ -1,7 +1,8 @@
 <!Doctype html>
 <?php 
 $nombre = "SERGIO";
-$c;
+$c="";
+$error = false;
 
 ?>
 <html>
@@ -14,16 +15,16 @@ $c;
     <body>
         <h1>BIENVENIDO AL FORMULARIO DE <?=$nombre?></h1><br>
         <form action="EjercicioCadenas.php" method="get">
-            Text: <input type="text"> 
+            Cadena: <input type="text"> 
             <input type="submit" value="Enviar" name="cadena" 
                 id="" value="<?=$c?>" placeholder="introduce la cadena">
 
         </form>
         <div>
             <ul>
-                <td> Número de vocales: <?=$c?> </td>
-                <td> Número de consonantes: <?=$c?> </td>
-                <td> Palíndromo: <?=$c?> </td>
+                <tr><td> Número de vocales: <?=$c?> </td></tr>
+                <tr><td> Número de consonantes: <?=$c?> </td></tr>
+                <tr><td> Palindromo: <?=$c?> </td></tr>
             </ul>
         </div>
     </body>
