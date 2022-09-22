@@ -4,7 +4,7 @@ $nombre = "SERGIO";
 $c=$_GET['cadena'];
 $error = false;
 if(isset($_GET['cadena'])){
-    $c=$_GET('cadena');
+    $c=$_GET['cadena'];
     if ($c == "") {
         $c = 0;
         $error = true;
