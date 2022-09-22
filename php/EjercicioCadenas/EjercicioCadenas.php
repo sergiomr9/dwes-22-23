@@ -9,14 +9,14 @@ $pal = true;
 if(isset($_GET['cadena'])){
     $c=$_GET['cadena'];
     if ($c == "") {
-        $c = 0;
+        $c = "";
         $error = true;
     }
 }else{
     $c=0;
 }
-print_r($_GET);
 
+//Calcular vocales y consonantes
 for ($i=0; $i < strlen($c); $i++) { 
     if ($c[$i]== "a" || $c[$i]== "e" || $c[$i]== "i" || $c[$i]== "o" || $c[$i]== "u") {
         $v++;
@@ -24,6 +24,7 @@ for ($i=0; $i < strlen($c); $i++) {
         $con++;
     }
 }
+//Palíndromo
 ?>
 <html>
     <head>
@@ -31,6 +32,7 @@ for ($i=0; $i < strlen($c); $i++) {
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="widht=device/width. initial-scale=1.0">
         <title>Document</title>
+        <link rel="stylesheet" href="EjercicioCadenas.css">
     </head>
     <body>
         <h1>BIENVENIDO AL FORMULARIO DE <?=$nombre?></h1><br>
