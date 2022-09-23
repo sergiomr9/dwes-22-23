@@ -42,7 +42,7 @@ for ($i=0; $i < strlen($c); $i++) {
         
         <div class="formulario">
         <form action="EjercicioCadenas.php" method="get">
-            <span class="cadena">Cadena</span><br><input type="text" name="cadena" 
+        <p class="cadena">Introduce una cadena </p><br><input type="text" name="cadena" 
                 id="" value="<?=$c?>" placeholder="introduce la cadena"> 
             <input type="submit" value="Enviar">
 
