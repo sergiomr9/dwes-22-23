@@ -6,9 +6,8 @@
     padding: 0 auto;
     margin-left:25vw;
     margin-right:25vw;
-    border: 2px solid black;
+    border: px solid black;
     padding: 15px;
-    background-color: #ffe6cc;
     width: 50vw;
 }
 form > input{
