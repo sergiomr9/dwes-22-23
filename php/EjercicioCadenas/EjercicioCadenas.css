@@ -2,7 +2,7 @@
  body{
      background-color:#FFFAF0 ;
 }
-form{
+.formulario{
     padding: 0 auto;
     margin-left:25vw;
     margin-right:25vw;
@@ -27,4 +27,7 @@ h1{
 }
 li{
     margin-left:45vw;
+}
+.cadena{
+    text-align: center;
 }

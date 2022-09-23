@@ -40,12 +40,14 @@ for ($i=0; $i < strlen($c); $i++) {
                 <h1>eres un poco burro</h1>
             <?php }?> <br>
         
+        <div class="formulario">
         <form action="EjercicioCadenas.php" method="get">
-            Cadena: <input type="text" name="cadena" 
+            <span class="cadena">Cadena</span><input type="text" name="cadena" 
                 id="" value="<?=$c?>" placeholder="introduce la cadena"> 
             <input type="submit" value="Enviar">
 
         </form>
+        </div>
         <div>
             <ul>
                 <li> Número de vocales: <?=$v?> </li>
