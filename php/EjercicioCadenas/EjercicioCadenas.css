@@ -6,7 +6,7 @@
     padding: 0 auto;
     margin-left:25vw;
     margin-right:25vw;
-    border: px solid black;
+    border: 1px solid black;
     padding: 15px;
     width: 50vw;
 }
@@ -29,4 +29,5 @@ li{
 }
 .cadena{
     text-align: center;
+    font-size: 5vw;
 }
