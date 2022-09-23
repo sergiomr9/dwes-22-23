@@ -1,8 +1,30 @@
 
  body{
      background-color:#FFFAF0 ;
-    }
+}
 form{
-    align-content: center;
-    border: 4px solid black;
-     }
+    padding: 0 auto;
+    margin-left:25vw;
+    margin-right:25vw;
+    border: 2px solid black;
+    padding: 15px;
+    background-color: #ffe6cc;
+    width: 50vw;
+}
+form > input{
+    margin-left: 20vw;
+    position: static;
+    width: 10vw;
+}
+.boton{
+    margin-left: 20.2vw;
+}
+.cad{
+    margin-left:21vw;
+}
+h1{
+    text-align: center;
+}
+li{
+    margin-left:45vw;
+}
