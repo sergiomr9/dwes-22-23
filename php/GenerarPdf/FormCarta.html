@@ -1,20 +1,27 @@
 <!DOCTYPE html>
 <html>
     <head> 
+       
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="widht=device/width. initial-scale=1.0">
         <title>Document</title>
+        <link rel="stylesheet" href="FormCarta.css">
     </head>
     <body>
         <div class="cuerpo">
-            <form action="GenFormCarta.php" method="get">
-                Nombre <input type="text" name="nombre" placeholder=" Tu nombre" id=""><br>
-                Empresa <input type="text" name="empresa" placeholder="Nombre de la empresa"><br>
-                Presentate <input type="text" name="presentate" placeholder="Cuentanos sobre ti"><br>
-                Fecha <input type="date" name="fecha"><br>
-                <input type="submit" name="enviar" value="Generar PDF"><br>
-            </form>
+            <p class="tit">Genera tu carta de motivación</p>
+            <div class="formulario">
+                <form action="GenFormCarta.php" method="get">
+                    <div class="f">
+                        <input type="text" name="nombre" placeholder=" Tu nombre" id="">
+                        <input type="text" name="empresa" placeholder="Nombre de la empresa">
+                        <input type="text" name="presentate" placeholder="Cuentanos sobre ti">
+                        <input type="date" name="fecha" placeholder="Fecha de nacimiento">
+                        <input type="submit" name="enviar" value="Generar PDF" class="mandar">
+                    </div>
+                </form>
+            </div>
         </div>
     </body>
 </html>

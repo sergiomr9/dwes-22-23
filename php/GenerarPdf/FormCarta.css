@@ -1,0 +1,57 @@
+.cuerpo{
+    border: 1px solid #0052cc;
+    padding: 0.8vw;
+    text-align: center;
+    width: 25%;
+    margin-left:35% ;
+}
+.tit{
+    font-family:'Oswald';
+    padding: 0.5vw;
+    padding-left: 1vw;
+    background-color: #e6f3ff;
+    font-size: 1.3vw;
+    color:#0047b3;
+}
+.tit:hover{
+    border:1px solid #0066ff;
+}
+.formulario{
+    padding-bottom:1vw;
+    padding-right: 1vw;
+    padding-left:1vw;
+    background-color: #e6f2ff;
+}
+.f{
+    display: flex;
+    flex-direction: column;
+    width: 15vw;
+    padding-left: 20%;
+}
+input{
+    margin:1vw;
+    height: 2vw;
+}
+input:hover{
+    border:1px solid #0066ff;
+}
+
+input::placeholder{
+    font-size: 1vw;
+    color:#0047b3;
+}
+
+input[type="date"]{
+    font-size:0.8vw;
+    color:#66a3ff;
+}
+.mandar{
+    width: 13vw;
+    height: 2.5vw;
+    font-size: 1.3vw;
+    color: white;
+    background-color: #0066ff;
+    border:3px solid #0066ff;
+    cursor: pointer;
+    
+}
