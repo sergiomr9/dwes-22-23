@@ -15,4 +15,5 @@ $pdf->Output();
 $pdf->Ln();
 $pdf->SetFont('Times', 'B', 20);
 $pdf->Cell(176,5,$nombre,0,0,'C');
+$pdf->Output();
 ?>
