@@ -1,19 +1,28 @@
 
  body{
-     background-color:#FFFAF0 ;
+      display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  align-items:center;
+  height:100vh;
+}
+.cuerpo{
+    border: 2px solid black;
 }
 .formulario{
     padding: 0 auto;
-    margin-left:25vw;
-    margin-right:25vw;
     border: 1px solid black;
-    padding: 15px;
-    width: 50vw;
+    padding: 10px;
+    width: 35vw;
+    margin-left: 6vw;
 }
-form > input{
-    margin-left: 20vw;
-    position: static;
-    width: 10vw;
+.cadena{
+    text-align: center;
+    font-size: 2vw;
+}
+.formu{
+    position: relative;
+    
 }
 .boton{
     margin-left: 20.2vw;
@@ -21,13 +30,46 @@ form > input{
 .cad{
     margin-left:21vw;
 }
-h1{
-    text-align: center;
+.result{
+    display:flex;
+    justify-content:space-between;
+    flex-wrap:wrap;
+    width:73%;
+    margin-left: 6vw;
 }
-li{
-    margin-left:45vw;
+.li1{
+    text-decoration:none;
+      color:#222;
+      padding:20px;
+      background:#efefef;
+      text-transform:uppercase;
+      text-align:center;
+      font-family:'Oswald';
+      flex-grow:1;
+      list-style: none;
+      border:1px solid black;
+      margin:5px;
+      margin-left:0;
+      width:40%;
+      display: inline;
 }
-.cadena{
-    text-align: center;
-    font-size: 5vw;
+.li2{
+    text-decoration:none;
+      color:#222;
+      padding:10px;
+      background:#efefef;
+      text-transform:uppercase;
+      text-align:center;
+      font-family:'Oswald';
+      margin:10px;
+      flex-grow:1;
+      list-style: none;
+      width: 100%;
+}
+.lista{
+    display:flex;
+    justify-content:space-between;
+    flex-wrap:wrap;
+    width: 100%;
+    border:1px solid black;
 }

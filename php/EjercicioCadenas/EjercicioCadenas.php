@@ -35,25 +35,28 @@ for ($i=0; $i < strlen($c); $i++) {
         <link rel="stylesheet" href="EjercicioCadenas.css">
     </head>
     <body>
-        <h1>BIENVENIDO AL FORMULARIO DE <?=$nombre?></h1><br>
-        <?php if($error){ ?>
-                <h1>eres un poco burro</h1>
-            <?php }?> <br>
-        
-        <div class="formulario">
-        <form action="EjercicioCadenas.php" method="get">
-        <p class="cadena">Introduce una cadena </p><br><input type="text" name="cadena" 
-                id="" value="<?=$c?>" placeholder="introduce la cadena"> 
-            <input type="submit" value="Enviar">
+        <div class="cuerpo">
+            <?php if($error){ ?>
+                    <h1>eres un poco burro</h1>
+                <?php }?> <br>
+            
+            <div class="formulario">
+                <form action="EjercicioCadenas.php" method="get" class="formu">
+                <p class="cadena">Introduce una cadena </p><br><input type="text" name="cadena" 
+                        id="" value="<?=$c?>" placeholder="introduce la cadena"> 
+                    <?php if ($error == false) { ?>
+                        <input type="submit" value="Enviar"class="formu">
+                    <?php }?>
 
-        </form>
-        </div>
-        <div>
-            <ul>
-                <li> Número de vocales: <?=$v?> </li>
-                <li> Número de consonantes: <?=$con?> </li>
-                <li> Palindromo: </li>
-            </ul>
+                </form>
+            </div>
+            <div class="result">
+                <ul class="lista">
+                    <li class="li1"> Número de vocales: <?=$v?> </li>
+                    <li class="li1"> Número de consonantes: <?=$con?> </li>
+                    <li class="li2"> Palindromo: </li>
+                </ul>
+            </div>
         </div>
     </body>
 </html>
