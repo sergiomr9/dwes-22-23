@@ -6,6 +6,7 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="widht=device/width. initial-scale=1.0">
+        <link rel="stylesheet" src="FormHorario.css">
         <title>Document</title>
     </head>
     <body>
@@ -36,6 +37,7 @@
 
                         <input type="text" name="a6" placeholder=" Tu nombre" id="">
                         <label for="a6">Asignaturas</label>
+
                         <button type="submit" class="">Generar Horario</button>
                     </div>
                 </form>

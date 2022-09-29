@@ -1,0 +1,19 @@
+.f{
+    display: flex;
+    flex-direction: column;
+    width: 15vw;
+    padding-left: 20%;
+}
+.formulario{
+    padding-bottom:1vw;
+    padding-right: 1vw;
+    padding-left:1vw;
+    background-color: #e6f2ff;
+}
+.cuerpo{
+    border: 1px solid #0052cc;
+    padding: 0.8vw;
+    text-align: center;
+    width: 25%;
+    margin-left:35% ;
+}
