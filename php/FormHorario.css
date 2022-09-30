@@ -1,19 +1,29 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: #eceffc;
+}
+.cuerpo{
+    padding: 1vw;
+    text-align: center;
+    display: flex;
+    
+}
 .f{
     display: flex;
     flex-direction: column;
-    width: 15vw;
-    padding-left: 20%;
 }
 .formulario{
-    padding-bottom:1vw;
-    padding-right: 1vw;
-    padding-left:1vw;
-    background-color: #e6f2ff;
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    flex-direction: column;
+    align-items: center;
+    border-radius:10px;
+    padding: 50px 40px;
 }
-.cuerpo{
-    border: 1px solid #0052cc;
-    padding: 0.8vw;
-    text-align: center;
-    width: 25%;
-    margin-left:35% ;
+.fborde {
+    --input-default-border-color: white;
+    --input-border-bottom-color: white;
 }
