@@ -34,7 +34,7 @@ function printform($item,$key){
     <form action="ListaCompra.php" method="get">
         <table>
             <?php
-                array_walk($usuarios,'printform');
+                array_walk($productos,'printform');
             ?>
         </table>
     </form>
