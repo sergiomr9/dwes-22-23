@@ -15,11 +15,7 @@ $productos = [
     "helado_chocolate" => 2.99
 ];
 function printform($item,$key){
-    echo "<tr>";
-        echo "<td>$key</td>";
-        echo "<td>$item</td>";
-        echo "<td><input type='number' name='$key'></td>";
-    echo "</tr>";
+    echo"<tr><td>$key</td><td>$item</td><td><input type='number' name='$key'></td></tr>";
 }
 ?>
 <!DOCTYPE html>
@@ -34,9 +30,10 @@ function printform($item,$key){
     <form action="ListaCompra.php" method="get">
         <table>
             <?php
-                array_walk($productos,'printform');
+              array_walk($productos,'printform');
             ?>
         </table>
+        <input type="submit" value="enviar">
     </form>
 </body>
 </html>
