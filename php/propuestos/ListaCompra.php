@@ -14,9 +14,17 @@ $productos = [
     "pizza_jamon_serrano" => 2.59,
     "helado_chocolate" => 2.99
 ];
-function printform($item,$key){
-    echo"<tr><td>$key</td><td>$item</td><td><input type='number' name='$key'></td></tr>";
+
+
+
+function Imprimir(){
+    global $productos;
+    array_walk($productos,function($item,$key){
+        echo"<tr> <td>$key</td> <td>$item</td> <td><input type='number' name='$key'> </td> </tr>"; 
+    });
+    echo "<input type='submit' name='enviar' method='get' value='enviar'>";
 }
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -30,10 +38,10 @@ function printform($item,$key){
     <form action="ListaCompra.php" method="get">
         <table>
             <?php
-              array_walk($productos,'printform');
+              Imprimir();
             ?>
         </table>
-        <input type="submit" value="enviar">
+        
     </form>
 </body>
 </html>
