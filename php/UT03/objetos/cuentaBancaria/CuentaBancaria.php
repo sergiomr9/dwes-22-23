@@ -11,6 +11,8 @@
         public function __construct($nombre ='anonimo', $saldo=0){ 
             $this->numeroCuenta = self::$num;
             CuentaBancaria::$num++;
+            $this->nombre = $nombre;
+            $this->saldo = $saldo;
         }
 
         //setter
@@ -39,10 +41,12 @@
         //metodos
         public function ingresar(float $ingreso): float {
             //Ingresa dinero en la cuenta
+            $this->saldo += $ingreso;
             return $this->saldo;
         }
         public function retirar(float $retirada): float{
             //Saca dinero de la cuenta
+            $this->saldo -= $retirada;
             return $this->saldo;
         }
         public function saldo(): float{
@@ -52,6 +56,7 @@
 
        public function transferirA(CuentaBancaria $CuentaBancaria,float $cantidad){
             $CuentaBancaria->saldo+=$cantidad;
+            $this->saldo -= $cantidad;
        }
 
        public function unirCon( CuentaBancaria $CuentaBancaria){

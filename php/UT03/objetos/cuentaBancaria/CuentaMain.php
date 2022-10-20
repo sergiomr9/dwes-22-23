@@ -28,15 +28,30 @@ $pobre = new CuentaBancaria("pobreton", -10000);
         echo "ahora agapito tiene ".$agapito->getSaldo()." lereles, es un poco más rico ****antorchas****";
     ?>
     <h2>Muestra el saldo de las 3 cuentas. Solo el saldo.</h2>
-
+    <?php 
+        echo $milloneti->saldo()."<br>";
+        echo $agapito->saldo()."<br>";
+        echo $pobre->saldo()."<br>";
+    ?>
     <h2>Pobretón ha hackeado el banco y ha conseguido unir la cuenta del Milloneti a la suya.</h2>
     <?php 
+        $pobre->mostrar()."<br>";
         $pobre->unirCon($milloneti);
-    ?> 
+        $pobre->mostrar()."<br>";
+    ?>
     <h2>Agapito es buena persona y decide transferir la mitad de su salario a Milloneti para que rehaga su vida.</h2>
     <?php 
-        $agapito->transferirA($milloneti,($agapito->saldo()/2))
+        echo $agapito->mostrar()."<br>";
+        echo $milloneti->mostrar()."<br>";
+        $agapito->transferirA($milloneti,($agapito->saldo()/2));
+        echo $agapito->mostrar()."<br>";
+        echo $milloneti->mostrar()."<br>";
     ?>
     <h2>Muestra el detalle (método mostrar) de las 3 cuentas.</h2>
+    <?php 
+        $milloneti->mostrar()."<br>";
+        $agapito->mostrar()."<br>";
+        $pobre->mostrar()."<br>";
+    ?>
 </body>
 </html>
