@@ -62,7 +62,8 @@
        public function unirCon( CuentaBancaria $CuentaBancaria){
             $this->saldo += $CuentaBancaria->saldo();
             $CuentaBancaria->setSaldo(0);
-            $CuentaBancaria->numeroCuenta-1;
+            $CuentaBancaria->bancarrota();
+            
        }
 
        public function bancarrota(){
