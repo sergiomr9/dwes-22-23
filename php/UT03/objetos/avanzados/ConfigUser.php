@@ -1,5 +1,7 @@
 <?php 
 
+    require('Config.php');
+
     $user1 = Config::singleton();//->setNombre('pedro');
     $user2 = Config::singleton();//->setNombre('');
     $user3 = Config::singleton();//->setNombre('');
@@ -22,8 +24,8 @@
     <h1>EJERCICIO SINGLETON</h1><br>
     <h3>MICHAEL 'MICKEY' MOUSE NO ES MI AMIGO</h3>
     <?php
-         echo $user1->getNombre();
-         echo $user2->getNombre();
+         echo $user1->getNombre()."<br>";
+         echo $user2->getNombre()."<br>";
          echo "'Mickey' is a nickname, nicknames are for friends, and ".$user3->getNombre()." is no friend of mine"; 
     ?>
 </body>
