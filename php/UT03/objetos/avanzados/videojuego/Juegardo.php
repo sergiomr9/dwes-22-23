@@ -1,7 +1,7 @@
 <?php 
     spl_autoload_register(function ($class) {
         $classPath = "./";
-        echo "Autoload llamado";
+        //echo "Autoload llamado";
         // en nuestros proyectos
         // ../src/
         // o la ruta a la raíz del proyecto
@@ -13,13 +13,16 @@
         switch ($dado) {
             case 1:
                 $clase = new Humano();
+                echo "<img src='dado1.png' alt=''><br>";
                 echo "TU PERSONAJE ES UN HUMANO";
                 break;
             case 2:
+                echo "<img src='dado2.png' alt=''><br>";
                 $clase = new MagoBlanco();
                 echo "TU PERSONAJE ES UN MAGO BLANCO";
                 break;
             case 3:
+                echo "<img src='dado3.png' alt=''><br>";
                 $clase = new MagoOscuro();
                 echo "TU PERSONAJE ES UN MAGO OSCURO";
                 break;
@@ -27,7 +30,7 @@
         return $clase;
     }
 
-    $hero = genPJ();
+   
     $villano = new MagoOscuro();
     
     /*function jugar(MagoOscuro $villano){
@@ -57,33 +60,31 @@
     <h3>El villano siempre será un mago oscuro</h3>
     <h3>Para ello vas a lanzar un dado</h3>
     <form action="Juegardo.php" method="get">
-        <submit name="generar" value="Empezar a jugar"></submit>
+        <input type="submit" name="generar" value="Empezar a jugar">
     </form>
     <?php 
         if (isset($_GET['generar'])) {
-            genPj();
-            $life=3;
-            do {
-                //jugar();
+            $hero = genPj();
+            //jugar();
     ?>
-                <form action ="Juegardo.php" method="get">
-                    <submit name="atacar" value="ATACAR"></submit>
-                    <submit name="defender" value="DEFENDER"></submit><br>
-                </form>
-                <?php   
-                    $num = mt_rand(1,2);
-                    if (isset($GET_['atacar'])) {
-                        $hero->atacar();
-                        //si el villano no ataca pierdes vida y el villano no
-                        $vAction = 1? $villano->atacar() : $villano->defender();
-                    }elseif (isset($GET_['defender'])) {
-                        //defiendes el ataque
-                        $hero->defender();
-                        $vAction = 1? $villano->atacar() : $villano->defender();
-                    }
-                    $life--;
+            <form action ="" method="post">
+                <input type="submit" name="atacar" value="ATACAR">
+                <input type="submit" name="defender" value="DEFENDER"><br>
+                
+            </form>
+            <?php   
+                $num = mt_rand(1,2);
+                if (isset($GET_['atacar'])) {
+                    $hero->atacar();
+                    //si el villano no ataca pierdes vida y el villano no
+                    $vAction = 1? $villano->atacar() : $villano->defender();
+                }elseif (isset($GET_['defender'])) {
+                    //defiendes el ataque
+                    $hero->defender();
+                    $vAction = 1? $villano->atacar() : $villano->defender();
+                }
                 ?>
-            <?php } while ($life > 0);
+            <?php
         }
         
             ?>

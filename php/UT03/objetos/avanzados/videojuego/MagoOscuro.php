@@ -2,7 +2,7 @@
 
      class MagoOscuro extends Mago 
     {
-        use xyz;
+        use XYZ;
         public function atacar(){
             echo "ATAQUE DE SOMBRAAAAAAA!!!!!!";
         }
