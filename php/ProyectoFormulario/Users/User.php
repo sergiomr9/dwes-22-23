@@ -17,20 +17,32 @@
         private $contraseña;//contraseña de registro
 
         //CONSTRUCTOR
-        public function __construct($nombre,$apellidos,$sexo,$fecha,$calle,$piso,$codigoPostal,$ciudad,$pais,$email,$usuario,$contraseña)
+        public function __construct($formulario)
         {
-            $this->nombre = $nombre;
-            $this->apellidos = $apellidos;
-            $this->sexo = $sexo;
-            $this->fecha = $fecha;
-            $this->calle = $calle;
-            $this->piso = $piso;
-            $this->codigoPostal = $codigoPostal;
-            $this->ciudad = $ciudad;
-            $this->pais = $pais;
-            $this->email = $email;
-            $this->usuario = $usuario;
-            $this->contraseña = $contraseña;
+            //$this->nombre = $nombre;
+            $this->nombre = new Texto('nombre', 30);
+            //$this->apellidos = $apellidos;
+            $this->apellidos = new Texto('apellidos', 30);
+            //$this->sexo = $sexo;
+            $this->sexo = new Sexo();
+            //$this->fecha = $fecha;
+            $this->fecha = new Fecha();
+            //$this->calle = $calle;
+            $this->calle = new Texto('nombre', 80);
+            //$this->piso = $piso;
+            $this->piso = new Texto('piso',5);
+            //$this->codigoPostal = $codigoPostal;
+            $this->codigoPostal = new Texto('cp',8);
+            // $this->ciudad = $ciudad;
+            $this->ciudad = new Texto('ciudad',30);
+            //$this->pais = $pais;
+            $this->pais = new Pais();
+            //$this->email = $email;
+            $this->email = new Email('email');
+            //$this->usuario = $usuario;
+            $this->usuario = new Texto('user',18);
+            //$this->contraseña = $contraseña;
+            $this->contraseña = new Contraseña('pass',18);
         }
 
         //Setter
@@ -113,6 +125,120 @@
         {
             return $this->nombre;
         }
+
+        //metodos
+
+        public function validar(){
+            if (!empty($_POST["nombre"])) {
+                $this->nombre = Validar::cleanData($_POST["nombre"]);
+            } elseif(empty($_POST["nombre"])){
+                $errores["nombre"] = "El nombre no puede estar vacio";
+            }
+            //apellidos
+            if (!empty($_POST["apellidos"])) {
+                $this->apellidos = Validar::cleanData($_POST["apellidos"]);
+            } else{
+                $errores["apellidos"] = "El apellido no puede estar vacio";
+            }
+            //sexo
+            if (!empty($_POST["sexo"])) {
+                $this->sexo = Validar::cleanData($_POST["sexo"]);
+            } else{
+                $errores["sexo"] = "Marca tu sexo";
+            }
+            //fecha
+            if (!empty($_POST["fecha"])) {
+                $this->fecha = Validar::cleanData($_POST["fecha"]);
+            } else{
+                $errores["fecha"] = "La fecha de nacimiento no puede estar vacia";
+            }
+            //calle
+            if (!empty($_POST["calle"])) {
+                $this->calle = Validar::cleanData($_POST["calle"]);
+            } else{
+                $errores["calle"] = "La calle no puede estar vacia";
+            }
+            if (!empty($_POST["piso"])) {
+                $this->piso = Validar::cleanData($_POST["piso"]);
+            } else{
+                $errores["piso"] = "el piso no puede estar vacio";
+            }
+            //Codigo Postal
+            if (!empty($_POST["cp"])) {
+                $this->codigoPostal = Validar::cleanData($_POST["cp"]);
+            } else{
+                $errores["cp"] = "El Código Postal no puede estar vacio";
+            }
+            //ciudad
+            if (!empty($_POST["ciudad"])) {
+                $this->ciudad = Validar::cleanData($_POST["ciudad"]);
+            } else{
+                $errores["ciudad"] = "La ciudad no puede estar vacia";
+            }
+            //pais
+            if (!empty($_POST["pais"])) {
+                $this->pais = Validar::cleanData($_POST["pais"]);
+            } else{
+                $errores["pais"] = "El pais no puede estar vacio";
+            }
+            //correo electronico
+            if (!empty($_POST["mail"])) {
+                $this->email = Validar::cleanData($_POST["mail"],Validar::MAIL);
+                if (!isset($email)) {
+                    $errores["mail"] = "El correo introducido no es un correo válido";
+                }
+            } else{
+                $errores["mail"] = "El correo electronicop no puede estar vacio";
+            }
+            //usuario
+            if (!empty($_POST["user"])) {
+                $this->usuario = Validar::cleanData($_POST["user"],Validar::USER);
+                if (!isset($usuario)) {
+                    $errores["user"] = "El usuario tiene que tener de 3 a 15 caracteres";
+                }
+            } else{
+                $errores["user"] = "El nombre de usuario no puede estar vacio";
+            }
+            //contraseña
+            if (!empty($_POST["pass"])) {
+                $this->contraseña = Validar::cleanData($_POST["pass"],Validar::PASSWORD);
+                if (!isset($contraseña)) {
+                    $errores["pass"] = "La contraseña tiene que tener como mínimo 8 caracteres y máximo 64";
+                }
+            } else{
+                $errores["pass"] = "La contraseña no puede estar vacia";
+            }
+    
+            // Recuento de errores
+            if(count($errores) == 0) {
+                // Guardo
+                file_put_contents(
+                    "lista.csv",
+                    "$this->nombre;$this->apellidos;$this->sexo;$this->fecha;$this->calle;$this->piso;$this->codigoPostal;$this->ciudad;$this->pais;$this->email;$this->usuario;$this->contraseña\n",
+                    FILE_APPEND
+                );
+                // redirect
+            }
+        }
+        public function esValido(){
+            global $errores;
+            if ($errores == 0) {
+                return true;
+            }else {
+                return false;
+            }
+        }
+        public function guardar(){
+            file_put_contents(
+                "lista.csv",
+                "$this->nombre;$this->apellidos;$this->sexo;$this->fecha;$this->calle;$this->piso;$this->codigoPostal;$this->ciudad;$this->pais;$this->email;$this->usuario;$this->contraseña\n",
+                FILE_APPEND
+            );
+        }
+        public function pintar(){
+
+        }
+        
     }
     
 

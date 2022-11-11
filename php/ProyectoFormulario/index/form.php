@@ -1,11 +1,12 @@
-<?php 
+<?php
+
+use Users\User;
 
     spl_autoload_register(function ($class) {
-        $classPath = realpath("../Users/");
-        $file = str_replace('\\','/', $class);
-        $include = "$classPath/${file}.php";
-        require($include);
-    });         
+        $classPath = "../";
+        $file = str_replace('\\', '/', $class);
+        require("$classPath${file}.php");
+    });       
 
 
     $nombre = "";
@@ -27,20 +28,20 @@
     $sysdate->format('m-d-Y');
 
     //Ver si el usuario envia la información
-    /*function mistake($var){
-        if (isset($errores["$var"])) {
+    function mistake($var,$errores) {
+        if (isset($errores[$var])) {
             echo '<div class="error">';
-            echo '<p>'.$errores["var"].'</p>';
+            echo '<p>'.$errores[$var].'</p>';
             echo '</div>';
         }
-    }*/
+    }
     if (isset($_POST["enviar"])) {
         //Controlar errores
-
+        User::validar();
         //nombre
-        if (!empty($_POST["nombre"])) {
+       /* if (!empty($_POST["nombre"])) {
             $nombre = Users\Validar::cleanData($_POST["nombre"]);
-        } else{
+        } elseif(empty($_POST["nombre"])){
             $errores["nombre"] = "El nombre no puede estar vacio";
         }
         //apellidos
@@ -114,13 +115,15 @@
         }
 
         // Recuento de errores
-        if (count($errores) == 0) {
-            // Guardar
-            $user = new Users\User($nombre, $apellidos, $sexo, $fecha,$calle,$piso, $codigoPostal, $ciudad, $pais, $email,$usuario,$contraseña);
-
-            $user->saveUsuarios($user);
-            exit();
-        }
+        if(count($errores) == 0) {
+            // Guardo
+            file_put_contents(
+                "lista.csv",
+                "$nombre;$apellidos;$sexo;$fecha;$calle;$piso;$codigoPostal;$ciudad;$pais;$email;$usuario;$contraseña\n",
+                FILE_APPEND
+            );
+            // redirect
+        } */
     }
 
 ?>
@@ -145,23 +148,9 @@
             <div class="humano">
                 <h3 class="tit">Nombre <span class="requerido">*</span></h3>
                 <input type="text" name="nombre" id="nombre" placeholder="Nombre" value="<?=$nombre?>">
-                <?php 
-                    /*if (isset($errores['nombre'])) {
-                        echo '<div class="error">';
-                        echo '<p>'.$errores['nombre'].'</p>';
-                        echo '</div>';
-                    }*/
-                   // mistake($_POST["nombre"]);
-                ?>
+                <?php mistake("nombre",$errores);?>
                 <input type="text" name="apellidos" id="apellidos" placeholder="Apellidos" value="<?=$apellidos?>">
-                <?php 
-                   /* if (isset($errores['apellidos'])) {
-                        echo '<div class="error">';
-                        echo '<p>'.$errores['apellidos'].'</p>';
-                        echo '</div>';
-                    }*/
-                    //mistake($_POST["apellidos"]);
-                ?>
+                <?php mistake("apellidos",$errores);?>
                 
                 <div class="sex">
                     <label for="sexo">Hombre</label>
@@ -171,25 +160,28 @@
                     <label for="sexo">Otro</label>
                     <input type="radio" name="sexo" id="O">
                 </div>
+                <?php mistake("sex",$errores);?>
             </div>
 
             <h3 class="tit">Fecha de nacimiento <span class="requerido">*</span></h3>
-            <input type="date" name="fecha" id="fecha" style="width:90%;padding:5px">
-
+            <input type="date" name="fecha"  id="fecha" style="width:90%;padding:5px">
+            <?php mistake("fecha",$errores);?>
             <div class="direccion">
                 <h3 class="tit">Direccion <span class="requerido"></span></h3><br>
                 <label for="calle" class="lb">Calle <span class="requerido">*</span></label>
                 <label for="piso" class="lb" id="floor" style="margin-left: 64.5%;">Piso<span class="requerido">*</span></label><br>
-                <input type="text" name="calle" id="calle" placeholder="Calle" style="width:70%;">
-                <input type="text" name="piso" id="piso" placeholder="Piso" style="width:20%;"><br>
-
+                <input type="text" name="calle" id="calle" placeholder="Calle" style="width:70%;"value="<?=$calle?>>
+                <?php mistake("calle",$errores);?>
+                <input type="text" name="piso" id="piso" placeholder="Piso" style="width:20%;"value="<?=$piso?>>
+                <?php mistake("piso",$errores);?>
                 <label for="cp" class="lb">codigo postal<span class="requerido">*</span></label>
                 <label for="ciudad" class="lb" style="margin-left: 16%;">ciudad<span class="requerido">*</span></label><br>
-                <input type="text" name="cp" id="cp" placeholder="Codigo Postal" style="width: 30%;">
-                <input type="text" name="ciudad" id="ciudad" placeholder="Ciudad" style="width: 60%;"><br>
-
+                <input type="text" name="cp" id="cp" placeholder="Codigo Postal" style="width: 30%;"value="<?=$codigoPostal?>>
+                <?php mistake("cp",$errores);?>
+                <input type="text" name="ciudad" id="ciudad" placeholder="Ciudad" style="width: 60%;"value="<?=$ciudad?>><br>
+                <?php mistake("ciudad",$errores);?>
                 <label for="pais">Pais<span class="requerido">*</span></label><br>
-                <input list="paisoption" id="pais" name="pais" placeholder="Pais" style="width: 90%;">
+                <input list="paisoption" id="pais" name="pais" placeholder="Pais" style="width: 90%;"value="<?=$pais?>>
                 <datalist id="paisoption">
                     <option value="España"></option>
                     <option value="Francia"></option>
@@ -201,15 +193,19 @@
                     <option value="Suiza"></option>
                     <option value="Andorra"></option>
                 </datalist>
+                <?php mistake("pais",$errores);?>
             </div>
             <h3 class="tit">Direccion mail <span class="requerido">*</span></h3>
-            <input type="email" name="mail" id="mail" placeholder="Correo electronico (e.g correo@gmail.es)" style="width: 90%;">
+            <input type="email" name="mail" id="mail" placeholder="Correo electronico (e.g correo@gmail.es)" style="width: 90%;"value="<?=$email?>>
+            <?php mistake("mail",$errores);?>
             <p class="recmail">Les recomendamos no utilizar los siguientes proveedores de correos: T-Online, Hotmail, live, Msn y Outlook dado que hay problemas a la hora de recibir nuestros emails en estos correos.</p>
 
             <div class="userpass">
                 <h3 class="tit">Elija nombre de usuario y contraseña <span class="requerido">*</span></h3>
-                <input type="text" name="user" id="user" placeholder="Nombre de usuario"><br>
-                <input type="password" name="pass" id="pass"placeholder="Contraseña (8-64 caracteres,debe incluir letras y numeros)"><br>
+                <input type="text" name="user" id="user" placeholder="Nombre de usuario"value="<?=$usuario?>>
+                <?php mistake("user",$errores);?>
+                <input type="password" name="pass" id="pass"placeholder="Contraseña (8-64 caracteres,debe incluir letras y numeros)"value="<?=$contraseña?>><br>
+                <?php mistake("pass",$errores);?>
                 <input type="password" name="reppass" id="reppass" placeholder="Repita su contraseña"><br>
             </div>
 
